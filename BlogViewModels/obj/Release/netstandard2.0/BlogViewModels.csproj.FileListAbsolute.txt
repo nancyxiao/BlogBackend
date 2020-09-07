@@ -1,0 +1,12 @@
+C:\Projects\Core\BlogViewModels\bin\Release\netstandard2.0\BlogViewModels.deps.json
+C:\Projects\Core\BlogViewModels\bin\Release\netstandard2.0\BlogViewModels.dll
+C:\Projects\Core\BlogViewModels\bin\Release\netstandard2.0\BlogViewModels.pdb
+C:\Projects\Core\BlogViewModels\bin\Release\netstandard2.0\DBClassLibrary.dll
+C:\Projects\Core\BlogViewModels\bin\Release\netstandard2.0\DBClassLibrary.pdb
+C:\Projects\Core\BlogViewModels\obj\Release\netstandard2.0\BlogViewModels.csprojAssemblyReference.cache
+C:\Projects\Core\BlogViewModels\obj\Release\netstandard2.0\BlogViewModels.AssemblyInfoInputs.cache
+C:\Projects\Core\BlogViewModels\obj\Release\netstandard2.0\BlogViewModels.AssemblyInfo.cs
+C:\Projects\Core\BlogViewModels\obj\Release\netstandard2.0\BlogViewModels.csproj.CoreCompileInputs.cache
+C:\Projects\Core\BlogViewModels\obj\Release\netstandard2.0\BlogViewModels.csproj.CopyComplete
+C:\Projects\Core\BlogViewModels\obj\Release\netstandard2.0\BlogViewModels.dll
+C:\Projects\Core\BlogViewModels\obj\Release\netstandard2.0\BlogViewModels.pdb

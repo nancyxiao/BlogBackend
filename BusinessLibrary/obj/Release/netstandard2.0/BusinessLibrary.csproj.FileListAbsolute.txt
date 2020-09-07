@@ -1,0 +1,14 @@
+C:\Projects\Core\BusinessLibrary\bin\Release\netstandard2.0\BusinessLibrary.deps.json
+C:\Projects\Core\BusinessLibrary\bin\Release\netstandard2.0\BusinessLibrary.dll
+C:\Projects\Core\BusinessLibrary\bin\Release\netstandard2.0\BusinessLibrary.pdb
+C:\Projects\Core\BusinessLibrary\bin\Release\netstandard2.0\BlogViewModels.dll
+C:\Projects\Core\BusinessLibrary\bin\Release\netstandard2.0\DBClassLibrary.dll
+C:\Projects\Core\BusinessLibrary\bin\Release\netstandard2.0\BlogViewModels.pdb
+C:\Projects\Core\BusinessLibrary\bin\Release\netstandard2.0\DBClassLibrary.pdb
+C:\Projects\Core\BusinessLibrary\obj\Release\netstandard2.0\BusinessLibrary.csprojAssemblyReference.cache
+C:\Projects\Core\BusinessLibrary\obj\Release\netstandard2.0\BusinessLibrary.AssemblyInfoInputs.cache
+C:\Projects\Core\BusinessLibrary\obj\Release\netstandard2.0\BusinessLibrary.AssemblyInfo.cs
+C:\Projects\Core\BusinessLibrary\obj\Release\netstandard2.0\BusinessLibrary.csproj.CoreCompileInputs.cache
+C:\Projects\Core\BusinessLibrary\obj\Release\netstandard2.0\BusinessLibrary.csproj.CopyComplete
+C:\Projects\Core\BusinessLibrary\obj\Release\netstandard2.0\BusinessLibrary.dll
+C:\Projects\Core\BusinessLibrary\obj\Release\netstandard2.0\BusinessLibrary.pdb

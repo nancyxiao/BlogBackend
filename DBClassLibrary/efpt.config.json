@@ -1,0 +1,67 @@
+﻿{
+   "ContextClassName": "BloggingContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "DoNotCombineNamespace": false,
+   "IdReplace": false,
+   "IncludeConnectionString": true,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": null,
+   "ProjectRootNamespace": "DBClassLibrary",
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Articles]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ArticleTagsDetail]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClassAll]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ForgotPwdRecords]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[LoginRecords]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Members]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Menus]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[RoleMenuMapping]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Roles]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Tags]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[UserIntroduction]"
+      }
+   ],
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseSpatial": false
+}
