@@ -1,0 +1,24 @@
+﻿@model BlogViewModels.PagedResult<DBClassLibrary.UserIntroduction>
+@{
+    ViewData["Title"] = "個人簡介維護";
+}
+@section headCss{
+    <!-- Theme included stylesheets -->
+    <link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+
+}
+<div id="view-all" class="table-wrapper">
+    <partial name="_ViewAll" model="Model" />
+</div>
+@section Scripts{
+    <!-- Main Quill library -->
+    <script src="//cdn.quilljs.com/1.3.6/quill.js"></script>
+}
+
+
+
+
+
+
+

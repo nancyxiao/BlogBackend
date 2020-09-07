@@ -1,0 +1,142 @@
+﻿@model BlogViewModels.MembersViewModel
+@{ Layout = null;}
+
+<div class="form-group role">
+    <label>所屬角色</label>
+    <select id="RoleID" asp-for="RoleID"
+            asp-items="@(new SelectList(Model.roleViewModel.RolesList, "RoleID","RoleDes"))" class="form-control">
+    </select>
+</div>
+<div class="form-group role">
+    <label>可查詢</label>
+    <input type="radio" asp-for="roleViewModel.role.CanQuery" name="CanQuery" value="@bool.TrueString"  disabled />@bool.TrueString
+</div>
+<div class="form-group role">
+    <label>可維護</label>
+    <input type="radio" id="role_CanUpdate_1" asp-for="roleViewModel.role.CanUpdate" name="CanUpdate" value="@bool.TrueString"  disabled/>@bool.TrueString
+    <input type="radio" id="role_CanUpdate_2" asp-for="roleViewModel.role.CanUpdate" name="CanUpdate"  value="@bool.FalseString"  disabled/>@bool.FalseString
+</div>
+<div class="form-group">
+    <label>選單項目</label>
+    <partial name="~/Views/Shared/_TreeView.cshtml" />
+    <input type="hidden" asp-for="roleViewModel.TreeIds" id="TreeIds" />
+</div>
+
+<script>
+    $(function () {
+        //初始化tree
+        var oTree = initailTree([]);
+         //切換前後台選單
+        $("#RoleID").on("change", oTree, function (event) {
+            //debugger
+            var platform = this.options[this.selectedIndex].text.substring(0, this.options[this.selectedIndex].text.indexOf('_'));
+            getTreeData(oTree, platform, this.value);
+        });
+        //第一次載入時觸發change事件Load Tree Data
+        $("#RoleID").trigger("change", oTree);
+        //debugger
+        
+    });
+
+
+    initailTree = (list) => {
+
+        var oTree = simTree({
+            el: '#tree',
+            data: list,
+            check: true,
+            linkParent: true,
+            onClick: function (item) {
+                console.log(item)
+                //debugger
+            },
+            onChange: function (item) {
+                console.log(item)
+                //debugger
+                var checkedMenus = '';
+                $(item).each(function (index, obj) {
+                    checkedMenus += obj.id + ',';
+                });
+                if (checkedMenus.length > 0) {
+                    checkedMenus = checkedMenus.slice(0, checkedMenus.length - 1);
+                }
+                //記錄勾選的選單
+                $("#TreeIds").val(checkedMenus);
+            }
+        });
+
+        return oTree;
+    }
+
+
+    getTreeData = (oTree ,platform, id) => {
+        //get data
+        //debugger
+        var roleModel = {
+            Platform: platform,
+            RoleId: id
+        };
+        $.ajax({
+            type: "post",
+            url: "/Roles/GetTreeData",
+            data: JSON.stringify(roleModel),
+            contentType: "application/json", //參數型態
+            dataType: "json",//回傳的資料型態
+            success: function (res) {
+                //debugger
+                var list = [];
+                if (res != null && res.data != undefined) {
+                    var checkedMenus = '';
+                    $(res.data).each(function (index, obj) {
+                        if (res.menus != undefined) {
+                            var ans = res.menus.some(function (item, i, array) {
+                                return item.id == obj.id;
+                            });
+                            if (ans) {
+                                obj.checked = 'checked'; //==> 有bug, 切換select時class並沒有依照此屬性顯示
+                                checkedMenus += obj.id + ',';
+                            }
+                        }
+                        obj.disabled = true;
+                        list.push(obj);
+                    });
+
+                    if (checkedMenus.length > 0) {
+                        checkedMenus = checkedMenus.slice(0, checkedMenus.length - 1);
+                    }
+                    //記錄勾選的選單
+                    $("#TreeIds").val(checkedMenus);
+                    //debugger
+                    let canQuery = res.role.canQuery.toString().toLowerCase().replace(/\b[a-z]/g, function (letter) {
+                        return letter.toUpperCase();
+                    });
+                    let canUpdate = res.role.canUpdate.toString().toLowerCase().replace(/\b[a-z]/g, function (letter) {
+                        return letter.toUpperCase();
+                    });
+                    $("input[name='CanQuery'][value='" + canQuery + "']").prop('checked', true);
+                    $("input[name='CanUpdate'][value='" + canUpdate + "']").prop('checked', true);
+
+                }
+                oTree.refresh(list);
+                //因為照範例提供data.checked = 'checked'的屬性, 當重新refresh data後,
+                //data裡面已經沒有checked的屬性, 但tree仍顯示之前勾選的checkbox,
+                //故在此客製動態加入checked class
+                if (list.length > 0) {
+                    res.data.forEach(function (item, index, array) {
+                        $("#tree li[data-id='" + item.id + "'] .sim-tree-checkbox").first().removeClass('checked');
+                    });
+                    res.menus.forEach(function (item, index, array) {
+                        $("#tree li[data-id='" + item.id + "'] .sim-tree-checkbox").first().addClass('checked');
+                    });
+                }
+            },
+            error: function (xhr, errstate, err) {
+                debugger
+                console.log(err);
+            }
+        });
+    }
+
+
+
+</script>

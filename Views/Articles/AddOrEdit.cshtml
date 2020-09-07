@@ -1,0 +1,194 @@
+﻿@model BlogViewModels.ArticlesViewModel
+@addTagHelper *, BlogBackend
+@{ Layout = null;}
+
+
+<form id="frmAddOrEdit" asp-action="AddOrEdit" onsubmit="return beforeSubmit(this);">
+
+    <div class="form-group">
+        <label>會員帳號</label>
+        <input type="text" asp-for="UserId" class="form-control" readonly>
+        <span id="span_UserId" asp-validation-for="UserId" class="text-danger"></span>
+        <input type="hidden" asp-for="ArticleId" />
+    </div>
+    <div class="form-group">
+        <label>文章標題</label>
+        <input type="text" asp-for="Title" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label>文章分類</label>
+        <select asp-for="ClassId" class="form-control">
+            <option value="">請選擇</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>所屬標籤</label>
+        <span id="span_tags" class="form-control"></span>
+        <input type="hidden" asp-for="TagsDetail" />
+    </div>
+    <div class="form-group">
+        <label>文章內容</label>
+        <div id="editor" class="editor ql-container ql-snow "></div>
+        <input type="hidden" asp-for="Text" />
+    </div>
+
+    <div class="row role can-maintain">
+        <div class="col-md-6">
+            <input type="button" class="btn btn-default btn-light btn-block" data-dismiss="modal" value="取消">
+        </div>
+        <div class="col-md-6">
+            <input type="submit" class="btn btn-primary btn-block" value="儲存">
+            <input type="hidden" id="State" asp-for="State" />
+        </div>
+    </div>
+</form>
+
+<script>
+    $(function () {
+        initialEditor();
+        //顯示或隱藏畫面DOM物件
+        showOrHide();
+
+        $('#UserId').on('blur', function () {
+            getUserData(this.value);
+        });
+
+        if ($('State').val() != 'add') {
+            getUserData($('#UserId').val());
+        }
+    });
+    getUserData = (userId) => {
+            $('#ClassId').find('option').not(':first').remove();
+            $('#span_tags').html('');
+
+            //取得文章分類&所屬標籤
+            $.ajax({
+                type: "post",
+                url: "/Articles/GetDataByUserId",
+                data: { userId: userId },
+                contentType: "application/x-www-form-urlencoded", //參數型態
+                dataType: "json",//回傳的資料型態
+                success: function (res) {
+
+                    if (res != null && res.data != undefined) {
+                        var msg = res.data.msg;
+                        if (msg != null && msg != undefined) {
+                            $('#span_UserId').html('');
+                            $('#span_UserId').html(msg);
+                        }
+
+                        //取得文章文類下拉選單
+                        var classData = res.data.classData;
+                        if (classData != null && classData != undefined) {
+                            $(classData).each(function (index, obj) {
+                                $('#ClassId').append($('<option></option>').attr('value', obj.classId).text(obj.className));
+                            });
+
+                            $('#ClassId').val('@Model.ClassId');
+                        }
+
+                        //debugger
+                        //取得所屬標籤checkbox
+                        var tagData = res.data.tagData;
+                        if (tagData != null && tagData != undefined) {
+
+                            var articlaTagData = $('#TagsDetail').val().length > 0 ? $('#TagsDetail').val().split(',') : [];
+
+                            $(tagData).each(function (index, obj) {
+                                var chk = '<input type="checkbox" id="TagId_' + index.toString() + '" name="TagId" value="' + obj.tagId + '" />';
+                                var label = '<label for="TagId_'+index.toString()+'">' + obj.tagName + '</label>';
+
+                                articlaTagData.forEach(function (item, index, array) {
+                                    if (item == obj.tagId) {
+                                        chk = '<input type="checkbox" id="TagId_' + index.toString() + '" name="TagId" value="' + obj.tagId + '" checked="checked" />';
+                                    }
+                                });
+
+                                $('#span_tags').append(chk).append(label).append('&nbsp;');
+                            });
+                        }
+
+
+                    }
+                },
+                error: function (xhr, errstate, err) {
+                    debugger
+                    console.log(err);
+                }
+            });
+    }
+    initialEditor = () => {
+        var FontAttributor = Quill.import('formats/font');
+        var fonts = ['calibri', 'impact', 'courier', 'comic','pmingliu','dfkai', 'jhenghei'];
+        FontAttributor.whitelist = fonts;
+        Quill.register(FontAttributor, true);
+
+        var toolbarOptions = [
+            ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+            ['link', 'image', 'code-block'],
+            //['blockquote']
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+
+            //[{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
+            [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
+            [{ 'align': [] }],
+
+            [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+            [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+            [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+            [{
+                'font': ['calibri', 'impact', 'courier', 'comic','pmingliu','dfkai', 'jhenghei'] }]
+
+        ];
+        var quill = new Quill('#editor', {
+            modules: {
+                toolbar: toolbarOptions
+            },
+            theme: 'snow'
+        });
+
+        quill.root.innerHTML = '@Html.Raw(Model.Text)';
+
+        quill.on('text-change', function (delta, oldDelta, source) {
+            if (source == 'api') {
+                console.log("An API call triggered this change.");
+            } else if (source == 'user') {
+                var html = quill.root.innerHTML;
+                $('#Text').val(html);
+                console.log("A user action triggered this change.");
+            }
+        });
+    }
+    showOrHide = () => {
+        var state = $('#State').val();
+        if (state == 'add') {
+            $('#UserId').removeAttr('readonly');
+        }
+        else if (state == 'view') {
+
+        }
+        else {
+            $('#UserId').attr('readonly', true);
+        }
+    }
+    beforeSubmit = form => {
+
+        //紀錄標籤勾選值到hidden欄位
+        $('#TagsDetail').val("");
+        var a = [];
+        $('input[name="TagId"').each(function (index, obj) {
+            if (obj.checked == true) {
+                a.push(obj.value);
+            }
+        });
+        if (a.length > 0) {
+            $('#TagsDetail').val(a.join(','));
+        }
+
+        return jQueryAjaxPost(form);
+    }
+</script>
+
+
+

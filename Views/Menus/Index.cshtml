@@ -1,0 +1,15 @@
+﻿@model BlogViewModels.PagedResult<DBClassLibrary.Menus>
+@{
+    ViewData["Title"] = "選單維護";
+}
+
+<div id="view-all" class="table-wrapper">
+    @*@await Html.PartialAsync("_ViewAll", Model)*@
+    <partial name="_ViewAll" model="Model" />
+</div>
+
+
+
+
+
+

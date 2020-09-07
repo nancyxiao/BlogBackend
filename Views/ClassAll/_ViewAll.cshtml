@@ -1,0 +1,58 @@
+﻿@using System.Net;
+@model BlogViewModels.PagedResult<DBClassLibrary.ClassAll>
+@addTagHelper *, BlogBackend
+<div class="table-title">
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>個人分類維護</h2>
+        </div>
+        <div class="col-sm-6">
+            <a href="#form-modal" class="btn btn-success" onclick="showInPopup('@Url.Action("AddOrEdit","ClassAll",new { id = "", classId = "", state = "add"},Context.Request.Scheme)','新增個人分類')"><i class="material-icons">&#xE147;</i> <span>新增個人分類</span></a>
+            <a href="#form-modal" class="btn btn-danger" onclick="showInPopup('@Url.Action("DeleteConfirm","ClassAll",new { id = "", classId = "", text = WebUtility.UrlEncode("確定刪除勾選的資料嗎?")}, Context.Request.Scheme)','刪除個人分類')"><i class="material-icons">&#xE15C;</i> <span>刪除個人分類</span></a>
+        </div>
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>
+                    <span class="custom-checkbox">
+                        <input type="checkbox" id="selectAll">
+                        <label for="selectAll"></label>
+                    </span>
+                </th>
+                <th>會員帳號</th>
+                <th>分類ID</th>
+                <th>分類名稱</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ var i = 1;}
+            @foreach (var data in Model.Results)
+            {
+                var rowNo = (Model.CurrentPage - 1) * Model.PageSize + i;
+                var checkboxId = "checkbox" + rowNo.ToString();
+                i++;
+            <tr>
+                <td>
+                    <span class="custom-checkbox">
+                        <input type="checkbox" id="@checkboxId" name="options[]" value="@($"{data.UserId},{data.ClassId}")">
+                        <label for="@checkboxId"></label>
+                    </span>
+                </td>
+                <td>@data.UserId</td>
+                <td>@data.ClassId</td>
+                <td>@data.ClassName</td>
+                <td>
+                    <a href="#form-modal" class="edit" onclick="showInPopup('@Url.Action("AddOrEdit","ClassAll",new { id =data.UserId, classId =  data.ClassId,  state = "edit"}, Context.Request.Scheme)','編輯個人分類')"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                    <a href="#form-modal" class="delete" onclick="showInPopup('@Url.Action("DeleteConfirm","ClassAll",new { id =data.UserId, classId = data.ClassId, text = WebUtility.UrlEncode("確定刪除這筆資料嗎?") }, Context.Request.Scheme)','刪除個人分類')"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<vc:pager result="Model"></vc:pager>
+

@@ -1,0 +1,18 @@
+﻿@using System.Net;
+@{ Layout = null;}
+<form asp-controller="@ViewBag.Controller" asp-action="Delete" onsubmit="return jQueryAjaxDelete(this,'@ViewBag.Id')">
+
+    <div class="form-group">
+        @*<p>確定刪除這筆資料嗎?</p>*@
+        <p>@WebUtility.UrlDecode(ViewBag.Text)</p>
+        <p class="text-warning"><small>此操作無法撤銷</small></p>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <input type="button" class="btn btn-default  btn-light  btn-block" data-dismiss="modal" value="取消">
+        </div>
+        <div class="col-md-6">
+            <input type="submit" class="btn btn-danger  btn-block" value="刪除">
+        </div>
+    </div>
+</form>

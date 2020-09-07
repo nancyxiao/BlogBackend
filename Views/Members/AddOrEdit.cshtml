@@ -1,0 +1,89 @@
+﻿@model BlogViewModels.MembersViewModel
+@addTagHelper *, BlogBackend
+@{ Layout = null;}
+
+
+<form id="frmAddOrEdit" asp-action="AddOrEdit" onsubmit="return jQueryAjaxPost(this);">
+
+    <div class="form-group role">
+        <label>會員帳號</label>
+        <input type="text" asp-for="UserId" class="form-control" readonly>
+         <span asp-validation-for="UserId" class="text-danger"></span>
+    </div>
+    <div class="form-group role">
+        <label>會員名稱</label>
+        <input type="text" asp-for="UserName" class="form-control" required>
+    </div>
+    <div class="form-group role">
+        <label>會員Email</label>
+        <input type="text" asp-for="UserEmail" class="form-control" required>
+        <span asp-validation-for="UserEmail" class="text-danger"></span>
+    </div>
+    <div class="form-group role">
+        <label>會員密碼</label>
+        <input type="password" asp-for="UserPwd" class="form-control">
+        <span asp-validation-for="UserPwd" class="text-danger"></span>
+    </div>
+    <div class="form-group role">
+        <a href="javascript:void(0)" id="editPwd" >修改密碼</a>
+        <input type="hidden" asp-for="isUpdatePwd" />
+    </div>
+    <div class="form-group role pwd-confirm" style="display:none">
+        <label>確認輸入密碼</label>
+        <input type="password" asp-for="ConfirmUserPwd" id="UserPwdConfirm" class="form-control">
+        <span asp-validation-for="ConfirmUserPwd" class="text-danger"></span>
+    </div>
+    <div class="form-group role">
+        <label>是否Email驗證通過</label>
+        <input type="radio" id="IsEmailValid_1" asp-for="IsEmailValid" value="@bool.TrueString" />@bool.TrueString
+        <input type="radio" id="IsEmailValid_2" asp-for="IsEmailValid" value="@bool.FalseString" />@bool.FalseString
+    </div>
+    <div class="form-group role">
+        <label>是否使用第三方帳號登入</label>
+        <input type="radio" id="IsThirdLogin_1" asp-for="IsThirdLogin" value="@bool.TrueString" />@bool.TrueString
+        <input type="radio" id="IsThirdLogin_2" asp-for="IsThirdLogin" value="@bool.FalseString" />@bool.FalseString
+    </div>
+    <div class="form-group role">
+        <partial name="_Roles" model="Model" />
+    </div>
+
+    <div class="row role can-maintain">
+        <div class="col-md-6">
+            <input type="button" class="btn btn-default btn-light btn-block" data-dismiss="modal" value="取消">
+        </div>
+        <div class="col-md-6">
+            <input type="submit" class="btn btn-primary btn-block" value="儲存">
+            <input  type="hidden" id="State" asp-for="State" />
+        </div>
+    </div>
+</form>
+
+<script>
+    $(function () {
+        //顯示或隱藏畫面DOM物件
+        showOrHide();
+
+        $('#editPwd').on('click', function () {
+            $('.pwd-confirm').show();
+            $('#isUpdatePwd').val('True');
+            $('#UserPwd').prop('required', true);
+            $('#ConfirmUserPwd').prop('required', true);
+        });
+    });
+
+    showOrHide = () => {
+        var state = $('#State').val();
+       if (state == 'add') {
+           $('#UserId').removeAttr('readonly');
+        }
+       else if (state == 'view') {
+
+        }
+       else {
+           $('#UserId').attr('readonly', true);
+        }
+    }
+</script>
+
+
+

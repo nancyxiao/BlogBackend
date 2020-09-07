@@ -1,0 +1,68 @@
+﻿/* Set dropdown font-families */
+.ql-font span[data-value="calibri"]::before {
+    font-family: 'Calibri';
+    content: 'Calibri' !important;
+}
+
+.ql-font span[data-value="impact"]::before {
+    font-family: "Impact";
+    content: 'Impact' !important;
+}
+
+.ql-font span[data-value="courier"]::before {
+    font-family: "Courier";
+    content: 'Courier' !important;
+}
+
+.ql-font span[data-value="comic"]::before {
+    font-family: "Comic Sans MS";
+    content: 'Comic Sans MS' !important;
+}
+
+
+.ql-font span[data-value="pmingliu"]::before {
+    font-family: 'PMingLiU'; 
+    content: '新細明體' !important;
+}
+
+.ql-font span[data-value="dfkai"]::before {
+    font-family: 'DFKai-SB';
+    content: '標楷體' !important;
+}
+
+.ql-font span[data-value="jhenghei"]::before{
+    font-family: 'Microsoft JhengHei'; 
+    content: '微軟正黑體' !important;
+}
+
+
+
+
+.ql-font-calibri {
+    font-family: 'Calibri';
+}
+
+.ql-font-impact {
+    font-family: 'Impact';
+}
+
+.ql-font-courier {
+    font-family: 'Courier';
+}
+
+.ql-font-comic {
+    font-family: 'Comic Sans MS';
+}
+
+.ql-font-pmingliu {
+    font-family: 'PMingLiU';
+}
+
+.ql-font-dfkai {
+    font-family: 'DFKai-SB';
+}
+
+.ql-font-jhenghei {
+    font-family: 'Microsoft JhengHei';
+}
+

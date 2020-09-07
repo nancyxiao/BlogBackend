@@ -1,0 +1,9 @@
+﻿@model BlogViewModels.PagedResult<BlogViewModels.MembersViewModel>
+@{
+    ViewData["Title"] = "使用者維護";
+}
+
+    <div id="view-all" class="table-wrapper">
+        <partial name="_ViewAll" model="Model" />
+    </div>
+

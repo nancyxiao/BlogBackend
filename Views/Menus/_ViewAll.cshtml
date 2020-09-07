@@ -1,0 +1,63 @@
+﻿@using System.Net;
+@model BlogViewModels.PagedResult<DBClassLibrary.Menus>
+@addTagHelper *, BlogBackend
+<div class="table-title">
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>選單維護</h2>
+        </div>
+        <div class="col-sm-6">
+            <a href="#form-modal" class="btn btn-success" onclick="showInPopup('@Url.Action("AddOrEdit","Menus",null,Context.Request.Scheme)','新增選單')"><i class="material-icons">&#xE147;</i> <span>新增選單</span></a>
+            <a href="#form-modal" class="btn btn-danger" onclick="showInPopup('@Url.Action("DeleteConfirm","Menus",new { id = "", text = WebUtility.UrlEncode("確定刪除勾選的資料嗎?")}, Context.Request.Scheme)','刪除選單')"><i class="material-icons">&#xE15C;</i> <span>刪除選單</span></a>
+        </div>
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>
+                    <span class="custom-checkbox">
+                        <input type="checkbox" id="selectAll">
+                        <label for="selectAll"></label>
+                    </span>
+                </th>
+                <th>選單ID</th>
+                <th>選單名稱</th>
+                <th>前/後台</th>
+                <th>父選單ID</th>
+                <th>排序</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ var i = 1;}
+            @foreach (var data in Model.Results)
+            {
+                var rowNo = (Model.CurrentPage - 1) * Model.PageSize + i;
+                var checkboxId = "checkbox" + rowNo.ToString();
+                i++;
+                <tr>
+                    <td>
+                        <span class="custom-checkbox">
+                            <input type="checkbox" id="@checkboxId" name="options[]" value="@data.MenuId">
+                            <label for="@checkboxId"></label>
+                        </span>
+                    </td>
+                    <td>@data.MenuId</td>
+                    <td>@data.MenuName</td>
+                    <td>@data.Platform</td>
+                    <td>@data.ParentId</td>
+                    <td>@data.Sequence</td>
+                    <td>
+                        <a href="#form-modal" class="edit"  onclick="showInPopup('@Url.Action("AddOrEdit","Menus",new { id =data.MenuId}, Context.Request.Scheme)','編輯選單')"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                        <a href="#form-modal" class="delete"  onclick="showInPopup('@Url.Action("DeleteConfirm","Menus",new { id  = data.MenuId, text = WebUtility.UrlEncode("確定刪除這筆資料嗎?") }, Context.Request.Scheme)','刪除選單')"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<vc:pager result="Model"></vc:pager>
+@*@(await Component.InvokeAsync<BlogBackend.ViewComponents.PagerViewComponent>(Model))*@
+

@@ -1,0 +1,41 @@
+﻿@model BlogViewModels.PagedResultBase
+@{
+    //var urlTemplate = Url.Action()+ "?page={0}";
+    var urlTemplate = (Model.RelativeUrl ?? Url.Action()) + "?page={0}";
+
+
+    var request = ViewContext.HttpContext.Request;
+    foreach (var key in request.Query.Keys)
+    {
+        if (key == "page")
+        {
+            continue;
+        }
+
+        urlTemplate += "&" + key + "=" + request.Query[key];
+    }
+
+    var startIndex = Math.Max(Model.CurrentPage - 5, 1);
+    var finishIndex = Math.Min(Model.CurrentPage + 5, Model.PageCount);
+}
+    <div class="clearfix">
+        <div class="hint-text">第 <b>@Model.FirstRowOnPage</b> 到 <b>@Model.LastRowOnPage</b> 個項目, 總共 <b>@Model.RowCount</b> 個項目</div>
+        @if (Model.PageCount > 1)
+        {
+    <ul class="pagination">
+        <li class="page-item disabled"><a href="@urlTemplate.Replace("{0}", "1")" title="第一頁">&laquo;</a></li>
+        @for (var i = startIndex; i <= finishIndex; i++)
+        {
+            @if (i == Model.CurrentPage)
+            {
+                <li class="page-item active"><a href="#" class="page-link" title="@i">@i</a></li>
+            }
+            else
+            {
+                <li  class="page-item"><a class="page-link" href="@urlTemplate.Replace("{0}", i.ToString())" title="@i">@i</a></li>
+            }
+        }
+        <li class="page-item"><a href="@urlTemplate.Replace("{0}", Model.PageCount.ToString())" title="最後一頁">&raquo;</a></li>
+    </ul>
+        }
+        </div>
