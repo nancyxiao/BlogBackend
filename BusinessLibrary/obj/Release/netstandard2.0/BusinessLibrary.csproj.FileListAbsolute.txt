@@ -12,3 +12,17 @@ C:\Projects\Core\BusinessLibrary\obj\Release\netstandard2.0\BusinessLibrary.cspr
 C:\Projects\Core\BusinessLibrary\obj\Release\netstandard2.0\BusinessLibrary.csproj.CopyComplete
 C:\Projects\Core\BusinessLibrary\obj\Release\netstandard2.0\BusinessLibrary.dll
 C:\Projects\Core\BusinessLibrary\obj\Release\netstandard2.0\BusinessLibrary.pdb
+C:\GitHub\BlogBackend\BusinessLibrary\bin\Release\netstandard2.0\BusinessLibrary.deps.json
+C:\GitHub\BlogBackend\BusinessLibrary\bin\Release\netstandard2.0\BusinessLibrary.dll
+C:\GitHub\BlogBackend\BusinessLibrary\bin\Release\netstandard2.0\BusinessLibrary.pdb
+C:\GitHub\BlogBackend\BusinessLibrary\bin\Release\netstandard2.0\BlogViewModels.dll
+C:\GitHub\BlogBackend\BusinessLibrary\bin\Release\netstandard2.0\DBClassLibrary.dll
+C:\GitHub\BlogBackend\BusinessLibrary\bin\Release\netstandard2.0\BlogViewModels.pdb
+C:\GitHub\BlogBackend\BusinessLibrary\bin\Release\netstandard2.0\DBClassLibrary.pdb
+C:\GitHub\BlogBackend\BusinessLibrary\obj\Release\netstandard2.0\BusinessLibrary.csprojAssemblyReference.cache
+C:\GitHub\BlogBackend\BusinessLibrary\obj\Release\netstandard2.0\BusinessLibrary.AssemblyInfoInputs.cache
+C:\GitHub\BlogBackend\BusinessLibrary\obj\Release\netstandard2.0\BusinessLibrary.AssemblyInfo.cs
+C:\GitHub\BlogBackend\BusinessLibrary\obj\Release\netstandard2.0\BusinessLibrary.csproj.CoreCompileInputs.cache
+C:\GitHub\BlogBackend\BusinessLibrary\obj\Release\netstandard2.0\BusinessLibrary.csproj.CopyComplete
+C:\GitHub\BlogBackend\BusinessLibrary\obj\Release\netstandard2.0\BusinessLibrary.dll
+C:\GitHub\BlogBackend\BusinessLibrary\obj\Release\netstandard2.0\BusinessLibrary.pdb

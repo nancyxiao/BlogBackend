@@ -6388,11 +6388,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\Core\\BusinessLibrary\\BusinessLibrary.csproj",
+      "projectUniqueName": "C:\\GitHub\\BlogBackend\\BusinessLibrary\\BusinessLibrary.csproj",
       "projectName": "BusinessLibrary",
-      "projectPath": "C:\\Projects\\Core\\BusinessLibrary\\BusinessLibrary.csproj",
+      "projectPath": "C:\\GitHub\\BlogBackend\\BusinessLibrary\\BusinessLibrary.csproj",
       "packagesPath": "C:\\Users\\sun-2\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\Core\\BusinessLibrary\\obj\\",
+      "outputPath": "C:\\GitHub\\BlogBackend\\BusinessLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\sun-2\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6408,11 +6408,11 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Projects\\Core\\BlogViewModels\\BlogViewModels.csproj": {
-              "projectPath": "C:\\Projects\\Core\\BlogViewModels\\BlogViewModels.csproj"
+            "C:\\GitHub\\BlogBackend\\BlogViewModels\\BlogViewModels.csproj": {
+              "projectPath": "C:\\GitHub\\BlogBackend\\BlogViewModels\\BlogViewModels.csproj"
             },
-            "C:\\Projects\\Core\\DBClassLibrary\\DBClassLibrary.csproj": {
-              "projectPath": "C:\\Projects\\Core\\DBClassLibrary\\DBClassLibrary.csproj"
+            "C:\\GitHub\\BlogBackend\\DBClassLibrary\\DBClassLibrary.csproj": {
+              "projectPath": "C:\\GitHub\\BlogBackend\\DBClassLibrary\\DBClassLibrary.csproj"
             }
           }
         }

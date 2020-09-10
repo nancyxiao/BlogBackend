@@ -25,11 +25,12 @@ namespace BlogBackend
                     var env = context.HostingEnvironment;
                     if (!env.IsDevelopment())
                     {
-
+                        //以下這個只能在Azure Service App 裡面執行，在IIS會出錯
                         var keyVaultEndpoint = new Uri(Environment.GetEnvironmentVariable("VaultUri"));
                         config.AddAzureKeyVault(
                         keyVaultEndpoint,
                         new DefaultAzureCredential());
+                        //
                     }
                 })
                 .ConfigureWebHostDefaults(webBuilder =>

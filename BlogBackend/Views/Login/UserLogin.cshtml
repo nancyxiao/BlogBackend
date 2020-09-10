@@ -9,8 +9,8 @@
 
 <div class="row justify-content-md-center">
     <div class="col-md-4">
-        
-        <form asp-action="UserLogin">
+
+        <form id="UserLogin" asp-action="UserLogin">
             <h2>Nancy Hsiao's BlogBackend</h2>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -25,11 +25,32 @@
                 <span asp-validation-for="UserPwd" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="登入"
+                <input type="submit" value="登入" id="Login"
                        class="btn btn-default btn-primary" />
+                <input type="hidden" asp-for="Token" />
             </div>
             <div style="color:red">@Html.ValidationMessage("LoginFaild")</div>
         </form>
     </div>
 </div>
+@section headScripts{
+    <script src="https://www.google.com/recaptcha/api.js?render=@ViewBag.WebKey"></script>
+    <script>
+        $(function () {
+            $("#Login").on('click', function (e) {
+                e.preventDefault();
+
+                grecaptcha.ready(function () {
+                    debugger
+                    grecaptcha.execute('@ViewBag.WebKey', { action: 'login' }).then(function (token) {
+                        // Add your logic to submit to your backend server here.
+                        debugger
+                        $('#Token').val(token);
+                        $('#UserLogin').submit();
+                    });
+                });
+            });
+    });
+    </script>
+}
 

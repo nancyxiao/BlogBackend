@@ -47,11 +47,13 @@
                     <td>@data.MenuId</td>
                     <td>@data.MenuName</td>
                     <td>@data.Platform</td>
-                    <td>@data.ParentId</td>
+                    <td>
+                        <a href="#form-modal" class="detail" onclick="showInPopup('@Url.Action("AddOrEdit","Menus",new { id =data.ParentId, state = "view"}, Context.Request.Scheme)','父選單檢視')">@data.ParentId</a>
+                    </td>
                     <td>@data.Sequence</td>
                     <td>
-                        <a href="#form-modal" class="edit"  onclick="showInPopup('@Url.Action("AddOrEdit","Menus",new { id =data.MenuId}, Context.Request.Scheme)','編輯選單')"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                        <a href="#form-modal" class="delete"  onclick="showInPopup('@Url.Action("DeleteConfirm","Menus",new { id  = data.MenuId, text = WebUtility.UrlEncode("確定刪除這筆資料嗎?") }, Context.Request.Scheme)','刪除選單')"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        <a href="#form-modal" class="edit" onclick="showInPopup('@Url.Action("AddOrEdit","Menus",new { id =data.MenuId}, Context.Request.Scheme)','編輯選單')"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                        <a href="#form-modal" class="delete" onclick="showInPopup('@Url.Action("DeleteConfirm","Menus",new { id  = data.MenuId, text = WebUtility.UrlEncode("確定刪除這筆資料嗎?") }, Context.Request.Scheme)','刪除選單')"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                     </td>
                 </tr>
             }

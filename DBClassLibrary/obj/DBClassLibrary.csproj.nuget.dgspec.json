@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\Core\\DBClassLibrary\\DBClassLibrary.csproj": {}
+    "C:\\GitHub\\BlogBackend\\DBClassLibrary\\DBClassLibrary.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\Core\\DBClassLibrary\\DBClassLibrary.csproj": {
+    "C:\\GitHub\\BlogBackend\\DBClassLibrary\\DBClassLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\Core\\DBClassLibrary\\DBClassLibrary.csproj",
+        "projectUniqueName": "C:\\GitHub\\BlogBackend\\DBClassLibrary\\DBClassLibrary.csproj",
         "projectName": "DBClassLibrary",
-        "projectPath": "C:\\Projects\\Core\\DBClassLibrary\\DBClassLibrary.csproj",
+        "projectPath": "C:\\GitHub\\BlogBackend\\DBClassLibrary\\DBClassLibrary.csproj",
         "packagesPath": "C:\\Users\\sun-2\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\Core\\DBClassLibrary\\obj\\",
+        "outputPath": "C:\\GitHub\\BlogBackend\\DBClassLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sun-2\\AppData\\Roaming\\NuGet\\NuGet.Config",

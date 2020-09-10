@@ -10,3 +10,15 @@ C:\Projects\Core\BlogViewModels\bin\Debug\netstandard2.0\DBClassLibrary.dll
 C:\Projects\Core\BlogViewModels\bin\Debug\netstandard2.0\DBClassLibrary.pdb
 C:\Projects\Core\BlogViewModels\obj\Debug\netstandard2.0\BlogViewModels.csproj.CopyComplete
 C:\Projects\Core\BlogViewModels\obj\Debug\netstandard2.0\BlogViewModels.csproj.CoreCompileInputs.cache
+C:\GitHub\BlogBackend\BlogViewModels\bin\Debug\netstandard2.0\BlogViewModels.deps.json
+C:\GitHub\BlogBackend\BlogViewModels\bin\Debug\netstandard2.0\BlogViewModels.dll
+C:\GitHub\BlogBackend\BlogViewModels\bin\Debug\netstandard2.0\BlogViewModels.pdb
+C:\GitHub\BlogBackend\BlogViewModels\bin\Debug\netstandard2.0\DBClassLibrary.dll
+C:\GitHub\BlogBackend\BlogViewModels\bin\Debug\netstandard2.0\DBClassLibrary.pdb
+C:\GitHub\BlogBackend\BlogViewModels\obj\Debug\netstandard2.0\BlogViewModels.csprojAssemblyReference.cache
+C:\GitHub\BlogBackend\BlogViewModels\obj\Debug\netstandard2.0\BlogViewModels.AssemblyInfoInputs.cache
+C:\GitHub\BlogBackend\BlogViewModels\obj\Debug\netstandard2.0\BlogViewModels.AssemblyInfo.cs
+C:\GitHub\BlogBackend\BlogViewModels\obj\Debug\netstandard2.0\BlogViewModels.csproj.CoreCompileInputs.cache
+C:\GitHub\BlogBackend\BlogViewModels\obj\Debug\netstandard2.0\BlogViewModels.csproj.CopyComplete
+C:\GitHub\BlogBackend\BlogViewModels\obj\Debug\netstandard2.0\BlogViewModels.dll
+C:\GitHub\BlogBackend\BlogViewModels\obj\Debug\netstandard2.0\BlogViewModels.pdb

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fCok/nsxXPVYeEidRCOPY4P8Q+R3d0608l7mSgTuWd7V0XWy6UZRoGMW5NZsd6PoLSyaPRXZtmOo5BgWAhfSfA==",
+  "dgSpecHash": "M1kMkjlnW39SUEi+g9HUD1i+bJF5RUZidZ/6GVdvsUZzCgrpfaGgEPsroiCHgCOGiAEhWXD99BB8qz3XIxYVbQ==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\Core\\BlogViewModels\\BlogViewModels.csproj",
+  "projectFilePath": "C:\\GitHub\\BlogBackend\\BlogViewModels\\BlogViewModels.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sun-2\\.nuget\\packages\\microsoft.aspnetcore.http.features\\3.1.6\\microsoft.aspnetcore.http.features.3.1.6.nupkg.sha512",
     "C:\\Users\\sun-2\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",

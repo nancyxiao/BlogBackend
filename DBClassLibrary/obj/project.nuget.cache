@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WPKcKsOzWcjFzimg8K2u0ijZK2leqtdGFsg7+mRQPqzcnD+XXkY+hg6TPYpRWF1bIjMko9NODri1knqbYBCtPg==",
+  "dgSpecHash": "QYZFt6JJQM929EuCYUb5FJNAq2/o8sQt1kv6M0xq+77QrY8gq4ceAe/HWCpCAINALX6CiCEfnt7S71fNO6TPAQ==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\Core\\DBClassLibrary\\DBClassLibrary.csproj",
+  "projectFilePath": "C:\\GitHub\\BlogBackend\\DBClassLibrary\\DBClassLibrary.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sun-2\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\sun-2\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

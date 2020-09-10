@@ -106,6 +106,7 @@ namespace BlogBackend
             //services.AddScoped<IAuthorizationHandler, AccessVerifyHandler>();
             ////services.AddSingleton<IAuthorizationHandler, AccessVerifyHandler>();
 
+            services.AddHttpClient();
 
             services.AddRazorPages();
             //services.AddControllersWithViews();

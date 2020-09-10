@@ -36,8 +36,9 @@ namespace BlogBackend.Controllers
             return View(model);
         }
         [NoDirectAccess]
-        public async Task<IActionResult> AddOrEdit(string id)
+        public async Task<IActionResult> AddOrEdit(string id, string state)
         {
+            ViewBag.State = state;
             if (string.IsNullOrEmpty(id))
                 return View(new DBClassLibrary.Menus());
             else

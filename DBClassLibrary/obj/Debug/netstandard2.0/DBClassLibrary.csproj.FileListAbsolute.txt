@@ -7,3 +7,12 @@ C:\Projects\Core\DBClassLibrary\obj\Debug\netstandard2.0\DBClassLibrary.dll
 C:\Projects\Core\DBClassLibrary\obj\Debug\netstandard2.0\DBClassLibrary.pdb
 C:\Projects\Core\DBClassLibrary\obj\Debug\netstandard2.0\DBClassLibrary.csproj.CoreCompileInputs.cache
 C:\Projects\Core\DBClassLibrary\obj\Debug\netstandard2.0\DBClassLibrary.csprojAssemblyReference.cache
+C:\GitHub\BlogBackend\DBClassLibrary\bin\Debug\netstandard2.0\DBClassLibrary.deps.json
+C:\GitHub\BlogBackend\DBClassLibrary\bin\Debug\netstandard2.0\DBClassLibrary.dll
+C:\GitHub\BlogBackend\DBClassLibrary\bin\Debug\netstandard2.0\DBClassLibrary.pdb
+C:\GitHub\BlogBackend\DBClassLibrary\obj\Debug\netstandard2.0\DBClassLibrary.AssemblyInfoInputs.cache
+C:\GitHub\BlogBackend\DBClassLibrary\obj\Debug\netstandard2.0\DBClassLibrary.AssemblyInfo.cs
+C:\GitHub\BlogBackend\DBClassLibrary\obj\Debug\netstandard2.0\DBClassLibrary.csproj.CoreCompileInputs.cache
+C:\GitHub\BlogBackend\DBClassLibrary\obj\Debug\netstandard2.0\DBClassLibrary.dll
+C:\GitHub\BlogBackend\DBClassLibrary\obj\Debug\netstandard2.0\DBClassLibrary.pdb
+C:\GitHub\BlogBackend\DBClassLibrary\obj\Debug\netstandard2.0\DBClassLibrary.csprojAssemblyReference.cache

@@ -3,49 +3,69 @@
 
 
 
-    <form id="frmAddOrEdit" asp-action="AddOrEdit" onsubmit="return jQueryAjaxPost(this);">
+<form id="frmAddOrEdit" asp-action="AddOrEdit" onsubmit="return jQueryAjaxPost(this);">
 
-        <div class="form-group">
-            <label>選單ID</label>
-            <input type="text" asp-for="MenuId" class="form-control" readonly>
+    <div class="form-group">
+        <label>選單ID</label>
+        <input type="text" asp-for="MenuId" class="form-control" readonly>
+
+    </div>
+    <div class="form-group">
+        <label>選單名稱</label>
+        <input type="text" asp-for="MenuName" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label>前/後台</label>
+        <select asp-for="Platform" class="form-control" required>
+            <option value="前台">前台</option>
+            <option value="後台">後台</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>父選單ID</label>
+        <input type="text" asp-for="ParentId" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>排序</label>
+        <input type="number" asp-for="Sequence" class="form-control" min="1">
+    </div>
+    <div class="form-group">
+        <label>Controller</label>
+        <input type="text" asp-for="Controller" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Action</label>
+        <input type="text" asp-for="Action" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Url</label>
+        <input type="text" asp-for="Url" class="form-control">
+    </div>
+    <div class="row can-maintain">
+        <div class="col-md-6">
+            <input type="button" class="btn btn-default btn-light btn-block" data-dismiss="modal" value="取消">
         </div>
-        <div class="form-group">
-            <label>選單名稱</label>
-            <input type="text" asp-for="MenuName" class="form-control" required>
+        <div class="col-md-6">
+            <input type="submit" class="btn btn-primary btn-block" value="儲存">
         </div>
-        <div class="form-group">
-            <label>前/後台</label>
-            <select asp-for="Platform" class="form-control" required>
-                <option value="前台">前台</option>
-                <option value="後台">後台</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label>父選單ID</label>
-            <input type="text" asp-for="ParentId" class="form-control">
-        </div>
-        <div class="form-group">
-            <label>排序</label>
-            <input type="number" asp-for="Sequence" class="form-control" min="1">
-        </div>
-        <div class="form-group">
-            <label>Controller</label>
-            <input type="text" asp-for="Controller" class="form-control">
-        </div>
-        <div class="form-group">
-            <label>Action</label>
-            <input type="text" asp-for="Action" class="form-control">
-        </div>
-        <div class="form-group">
-            <label>Url</label>
-            <input type="text" asp-for="Url" class="form-control">
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <input type="button" class="btn btn-default btn-light btn-block" data-dismiss="modal" value="取消">
-            </div>
-            <div class="col-md-6">
-                <input type="submit" class="btn btn-primary btn-block" value="儲存">
-            </div>
-        </div>
-    </form>
+    </div>
+</form>
+
+<script>
+    $(function () {
+        showOrHide();
+    });
+
+    showOrHide = () => {
+        if ('@ViewBag.State?.ToString()' == 'view') {
+            $('input[type="text"]:not(#MenuId), input[type="number"]').attr('readonly', true);
+            $('select').prop('disabled', true);
+            $('.can-maintain').hide();
+        }
+        else {
+            $('input[type="text"]:not(#MenuId), input[type="number"]').attr('readonly', false);
+            $('select').prop('disabled', false);
+            $('.can-maintain').show();
+        }
+    }
+</script>
